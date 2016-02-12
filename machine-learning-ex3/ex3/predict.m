@@ -20,12 +20,14 @@ p = zeros(size(X, 1), 1);
 %       information see 'help max'. If your examples are in rows, then, you
 %       can use max(A, [], 2) to obtain the max for each row.
 %
+% Add ones to the X data matrix
+X = [ones(m, 1) X];
+a1 = sigmoid(X * Theta1');
 
-
-
-
-
-
+% Add ones to the a1 data matrix
+a1 = [ones(size(a1, 1) , 1) a1];
+[pmax, imax] = max(sigmoid(a1 * Theta2'), [], 2);
+p = imax;
 
 
 
