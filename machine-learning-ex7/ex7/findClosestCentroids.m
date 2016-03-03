@@ -27,7 +27,7 @@ for i = 1:size(X,1)
     for j = 1:K
         X(i)
         centroids(j)
-        ci = (X(i) - centroids(j)).^2
+        ci = sum((X(i,:) - centroids(j,:)).^2)
         if (ci < minCentDist)
             minCentDist = ci;
             minCentIdx = j;
